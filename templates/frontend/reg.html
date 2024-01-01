@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shopcitymall</title>
+    <link href="{% static 'frontend/assets/img/allinone2.png' %}" rel="icon">
+    <link href="{% static 'frontend/assets/img/allinone1.jfif' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'frontend/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'frontend/register/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'frontend/register/css/style.css' %}">
+    <link href="{% static 'frontend/assets/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+  
+          <h1 class="logo me-auto"><a href="{% url 'index' %}">AllinOne</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="{% url 'index' %}" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  
+          <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+              <li><a class="#" href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'frontend:about'%}">About</a></li>
+              <li><a href="{% url 'frontend:wears'%}">Wear's</a></li>
+              <li><a href="{% url 'frontend:cakes'%}">Pastries</a></li>
+              <li><a href="{% url 'frontend:phones'%}">Gadgets</a></li>
+              <li><a href="{% url 'frontend:hostel'%}">Hostels</a></li>
+              <li><a href="#"><span>Restaurants</span></a>
+                <!-- <ul>
+                  <li><a href="#">Arena</a></li>
+                  </li>
+                  <li><a href="#">Krafty</a></li>
+                  <li><a href="#">Item7</a></li>
+                  <li><a href="#">Okele Joint</a></li>
+                  <li><a href="#">Iya Afusat</a></li>
+                  <li><a href="#">Joy Bliss</a></li>
+                  <li><a href="#">Joy Bliss</a></li>
+                </ul> -->
+              </li>
+              <li><a href="{% url 'frontend:blog'%}">Blog</a></li>
+              <li><a href="{% url 'frontend:contact'%}">Contact</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" style="padding-left: 160px;"></i>
+          </nav><!-- .navbar -->
+  
+        </div>
+    </header><!-- End Header -->
+
+
+    <div class="main">
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Register</h2>
+                        <form method="POST" class="register-form" id="register-form">
+                            {% if messages %}
+                                {% for mes in messages %}
+                                    <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                {{reg.first_name}}
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                {{reg.user_name}}
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                {{reg.email}}
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                {{reg.password1}}
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                {{reg.password2}}
+                            </div>
+                            <div class="form-group">
+                                {{reg.account_type}}
+                            </div>
+                        
+                            
+                            <a href="{% url 'backend:login_view'%}" class="signup-image-link">I am already a member. Click to log in</a>
+                            
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'frontend/register/images/signup-image.jpg' %}" alt="sing up image"></figure>
+                        <!-- <a href="{% url 'backend:login_view'%}" class="signup-image-link">I am already a member</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sing in  Form -->
+        <!-- <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="login-form">
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+    </div>
+
+    <!-- JS -->
+    
+    <script src="{% static 'frontend/register/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'frontend/register/js/main.js' %}"></script>
+    <script src="{% static 'frontend/assets/js/main.js' %}"></script>
+</body>
+</html>'

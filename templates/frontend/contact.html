@@ -1,0 +1,99 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title %}
+    AllInOne.com
+{% endblock%}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>We're proud to offer vendors the best possible experience on our website. With a wide range of products and services, an easy-to-use interface, advanced security features, and excellent customer support, we're the number one choice for vendors.</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div data-aos="fade-up">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Hawawu Ajike Hostel Westend <br>
+                  Malete, Kwara State.<br>
+                  Nigeria <br><br></p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p><a href="mailto:allinone@gmail.com">allinone@gmail.com</a></p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+234 705 7985 650</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-whatsapp"></i>
+                <h4>Chat:</h4>
+                <p><a href="https://wa.me/+2347084448398">+234 708 4448 398</a></p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+            <form action="#" method="post" class="email-form">
+              {% if messages %}
+                {% for m in messages%}
+                  <div class="alert {{ m.tags }}">{{ m }}</div>
+                {% endfor %}
+              {% endif %}
+              
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  {{cont.first_name}}
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  {{cont.email}}
+                </div>
+                <div class="form-group mt-3">
+                {{cont.subject}}
+                </div>
+                <div class="form-group mt-3">
+                  {{cont.message}}
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              {% csrf_token %}
+              </div>   
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+ {% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title %}
+    AllInOne.com
+{% endblock%}
+
+
+{% block content %}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Fashion</h2>
+        <p>We're proud to offer vendors the best possible experience on our website. With a wide range of products and services, an easy-to-use interface, advanced security features, and excellent customer support, we're the number one choice for vendors.</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+          {% if wears %}
+                {% for w in wears %}
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                  <div class="course-item">
+                
+                    <div class="course-content block2">
+                      <div class="block2-pic hov-img0">
+                        <img src="{{ w.img1.url }}" class="img-fluid" alt="..." style="width: 350px; height: 302px; ">
+                        <a href="{% url 'frontend:wears_details' w.id %}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 " >
+                          More Details
+                        </a>
+                      </div>
+                      
+                      <div class="d-flex justify-content-between align-items-center mb-3 block2-txt flex-w flex-t p-t-14 " style="padding: 15px; text-align: center;">
+                        <h4 >Brand:{{ w.vendor_brand}}</h4>
+                        
+                      </div>
+                      <div style="text-align: center;">
+                        <h3><a href="{% url 'frontend:wears_details' w.id %}">{{ w.product_detail }}</a></h3>
+                        <p class="price">&#8358;{{ w.price }}</p>
+                      </div>
+                      
+                      
+                      <!-- <p>{{ r.description|truncatewords:30 }}.....</p> -->
+                      <div class="trainer d-flex justify-content-between align-items-center">
+                      
+                        <div class="trainer-rank d-flex align-items-center">
+                          <h6 style="color: #1965d8 !important;">ShopCityMall</h6>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div> <!-- End Course Item-->
+
+                  
+                {% endfor %}
+              {% endif %} <!-- End Course Item-->
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Courses Section -->
+
+  </main><!-- End #main -->
+  
+
+  <!-- ======= Footer ======= -->
+ {% endblock %}

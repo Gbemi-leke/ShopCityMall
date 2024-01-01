@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="{% static 'frontend/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'frontend/assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/css/signup.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <div id="container" class="container-fluid">
+        <!-- FORM SECTION -->
+        <div class="row">
+            <!-- SIGN UP -->
+            <div class="col align-items-center flex-col sign-up">
+                <form class="form-wrapper align-items-center"  method='post'>
+                    <div class="form sign-up">
+                        {% if messages %}
+                            {% for mes in messages %}
+                                <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            {{reg.user_name}}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            {{reg.first_name}}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bx-mail-send'></i>
+                            {{reg.email}}
+                        </div>
+                        <div class="input-group" style="background-color:#efefef;">
+                            <form>
+                                <i class='bx bxs-box'>
+                                    
+                                </i>
+                                <select class="form-select form-select-lg">
+                                    <option value="food">Foods</option>
+                                    <option value="accessories">Phones / Accessories</option>
+                                    <option value="hostel">Hostel</option>
+                                    <option value="cake">Cake / Confectionery</option>
+                                    <option value="wears">Wear's / Collection</option>
+                                    <option value="select" selected>Select</option>
+                                </select>
+                            </form>
+                            
+                            
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            {{reg.password1}}
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            {{reg.password2}}
+                        </div>
+                        <button>
+                            Sign up
+                        </button>
+                        {% csrf_token %}
+                        <p>
+                            <span>
+                                Already have an account?
+                            </span>
+                            <b onclick="toggle()" class="pointer">
+                                Sign in here
+                            </b>
+                        </p>
+                    </div>
+                    {% csrf_token %}
+                </form>
+            </div>
+            <!-- END SIGN UP -->
+            <!-- SIGN IN -->
+            <div class="col align-items-center flex-col sign-in" >
+                <form class="form-wrapper align-items-center" method='post'>
+                    
+                    <div class="form sign-in">
+                        {% if messages %}
+                            {% for mes in messages %}
+                                <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="input-group" data-validate="Username is required">
+                            <i class='bx bxs-user'></i>
+                            <input type="user_name" name="user_name" placeholder="Email">
+                        </div>
+                        <div class="input-group" data-validate = "Password is required">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                        <button>
+                            Sign in
+                        </button>
+                        {% csrf_token %}
+                        <p>
+                            <b>
+                                <a href="{% url 'backend:password_reset_request' %}">Forgot password?</a>
+                            </b>
+                        </p>
+                        <p>
+                            <span>
+                                Don't have an account?
+                            </span>
+                            <b onclick="toggle()" class="pointer">
+                                Sign up here
+                            </b>
+                        </p>
+                        
+                    </div>
+                </form>
+                <div class="form-wrapper">
+        
+                </div>
+            </div>
+            <!-- END SIGN IN -->
+        </div>
+        <!-- END FORM SECTION -->
+        <!-- CONTENT SECTION -->
+        <div class="row content-row">
+            <!-- SIGN IN CONTENT -->
+            <div class="col align-items-center flex-col">
+                <div class="text sign-in">
+                    <h2>
+                        <a href="{% url 'index' %}" class="app-brand-link">
+                            <img src="{% static 'frontend/assets/img/allinone2.png' %}" data-retina="true" alt="" width="50" height="36"></a>
+                            </a>
+                    </h2>
+                    <h2>
+                        Welcome
+                    </h2>
+                    
+    
+                </div>
+                <div class="img sign-in">
+        
+                </div>
+            </div>
+            <!-- END SIGN IN CONTENT -->
+            <!-- SIGN UP CONTENT -->
+            <div class="col align-items-center flex-col">
+                <div class="img sign-up">
+                
+                </div>
+                <div class="text sign-up">
+                    <h2>
+                        <a href="{% url 'index' %}" class="app-brand-link">
+                        <img src="{% static 'frontend/assets/img/allinone2.png' %}" data-retina="true" alt="" width="50" height="36"></a>
+                        </a>
+                    </h2>
+                    <h2>
+                        Register here
+                    </h2>
+                    
+    
+                </div>
+            </div>
+            <!-- END SIGN UP CONTENT -->
+        </div>
+        <!-- END CONTENT SECTION -->
+    </div>
+
+    <script src="{% static 'frontend/assets/js/signup.js' %}"></script>
+</body>
+</html>
+    

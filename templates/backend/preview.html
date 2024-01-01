@@ -1,0 +1,48 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+shopcitymall
+{% endblock %}
+
+{% block content %}
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Blogs /</span> Edit Blogs</h4>
+              <div class="list_general" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <section id="description">
+                            <div class="item-block animate-box" data-animate-effect="fadeIn">
+                                <div class="">
+                                  <figure>
+                                    <img src="{{ post.blog_img.url }}" class="img-responsive col-sm-12" style="padding-bottom: 10px; width: 300px; height: 400px; font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">
+                                    
+                                  </figure>
+                                  <div class="fh5co-property-innter">
+                                    <h2><a href="#">{{ post.blog_title }}</a></h2>
+                                  
+                                    <p>{{ post.agent_desription }}</p>
+                                     <p><i class="fa fa-phone" style="color: blue !important;"></i>&nbsp;Description:&nbsp; {{ post.blog_description }}</p>
+                                     <p><i class="fa fa-map" style="color: blue !important;">&nbsp;</i>Date</i>:&nbsp; {{ post.blog_date }}</p>
+                                  </div>
+                                   
+                                </div>
+                              </div>
+                        </section>
+                    </div>
+                </div>
+            
+            </div>
+            <p class=" col-3 mt-3" style="padding-bottom: 40px;"><a href="{%url 'backend:list_all_blog'%}"  class="btn_1 align-items-center p-3" style="border-radius: 20px; background-color: #0d6efd; color: aliceblue;"> Back</a></p>
+            </div>
+            
+            <!-- / Content -->
+
+  {% endblock %}

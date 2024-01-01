@@ -1,0 +1,78 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+shopcitymall
+{% endblock %}
+
+{% block content %}
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Gadgets /</span> Edit Post</h4>
+
+              <div class="row">
+                <!-- Form controls -->
+                <div class="col-md-6">
+                  <div class="card mb-4">
+                    <form class="card-body" enctype="multipart/form-data" method="POST">
+                      {% if messages %}
+                          {% for mes in messages %}
+                          <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                          {% endfor %}
+                      {% endif %}
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Gadgets image</label><br>
+                        {{ editgadgets_form.img1 }}
+                      </div>
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Other image</label><br>
+                        {{ editgadgets_form.img2 }}
+                      </div>
+                      <div class="mb-3">
+                       
+                      <div>
+                        <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+                        {{ editgadgets_form.detail }}
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Vendor Brand</label>
+                        <div class="form-floating">
+                          {{ editgadgets_form.vendor_brand }}
+                          <label for="floatingInput">Vendor Brand</label>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Price</label><br>
+                        {{ editgadgets_form.price }}
+                      </div>
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Size</label><br>
+                        {{ editgadgets_form.colour }}
+                      </div>
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">No. of Goods Available</label><br>
+                        {{ editgadgets_form.available_product }}
+                      </div>
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Delivery fee</label><br>
+                        {{ editgadgets_form.delivery_fee }}
+                      </div>
+                      <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                        <!-- <button type="reset" class="btn btn-outline-secondary">Cancel</button> -->
+                      </div>
+                      {% csrf_token %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+  {% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+shopcitymall
+{% endblock %}
+
+{% block content %}
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Blogs /</span> Edit Blogs</h4>
+
+              <div class="row">
+                <!-- Form controls -->
+                <div class="col-md-6">
+                  <div class="card mb-4">
+                    <form class="card-body" enctype="multipart/form-data" method="POST">
+                      {% if messages %}
+                          {% for mes in messages %}
+                          <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                          {% endfor %}
+                      {% endif %}
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Blog image</label><br>
+                        {{ editblog_form.blog_img }}
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Blog Title</label>
+                        <div class="form-floating">
+                          {{ editblog_form.blog_title }}
+                          <label for="floatingInput">Blog Title</label>
+                          
+                        </div>
+                      </div>
+                      <div>
+                        <label for="exampleFormControlTextarea1" class="form-label">Textarea</label>
+                        {{ editblog_form.blog_description }}
+                      </div>
+                      <div class="mt-2">
+                        <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                      </div>
+                      {% csrf_token %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+  {% endblock %}

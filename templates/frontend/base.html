@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>
+    {% block title %}
+    AllInOne.com
+    {% endblock%}
+  </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'frontend/assets/img/shopcityfav.png' %}" rel="icon">
+  <link href="{% static 'frontend/assets/img/allinone1.jfif' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'frontend/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'frontend/assets/vendor/aos/aos.css' %}" rel="stylesheet"> -->
+  
+  <link href="{% static 'frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'frontend/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'frontend/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'frontend/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"> -->
+  <link href="{% static 'frontend/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'frontend/b/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File --> 
+  <link href="{% static 'frontend/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" type="text/css" href="{% static 'frontend/assets/bootstrap/css/bootstrap.min.css' %}"> -->
+<!--===============================================================================================-->
+
+
+  <link rel="stylesheet" type="text/css" href="{% static 'frontend/assets/slick/slick.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'frontend/assets/css/main.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'frontend/assets/css/util.css' %}">
+  
+  <!-- =======================================================
+  * Template Name: Mentor - v4.7.0
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  {% if request.user.is_authenticated %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'index' %}"><img src="{% static 'frontend/assets/img/logo.png' %}"></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="{% url 'index' %}" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="#" href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'frontend:about'%}">About</a></li>
+          <li><a href="{% url 'frontend:wears'%}">Fashion</a></li>
+          <li><a href="{% url 'frontend:cakes'%}">Pastries</a></li>
+          <li><a href="{% url 'frontend:phones'%}">Gadgets</a></li>
+          <li><a href="{% url 'frontend:hostel'%}">Hostels</a></li>
+          <li><a href="{% url 'frontend:foods' %}"><span>Restaurants</span></a>
+            <!-- <ul>
+              <li><a href="#">Arena</a></li>
+              </li>
+              <li><a href="#">Krafty</a></li>
+              <li><a href="#">Item7</a></li>
+              <li><a href="#">Okele Joint</a></li>
+              <li><a href="#">Iya Afusat</a></li>
+              <li><a href="#">Joy Bliss</a></li>
+              <li><a href="#">Joy Bliss</a></li>
+            </ul> -->
+          </li>
+          <li><a href="{% url 'frontend:blog'%}">Blog</a></li>
+          <li><a href="{% url 'frontend:contact'%}">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      
+      <div>
+        <a href="{% url 'backend:dashboard' %}">
+          &nbsp; &nbsp; <img class="img-profile rounded-circle" src="{{ user.image_url}}" style="width: 55px; height: 55px; padding: 10px;">
+        </a>
+        
+      </div>
+      
+
+    </div>
+  </header><!-- End Header -->
+  {% else %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+  
+        <h1 class="logo me-auto"><a href="{% url 'index' %}">ShopCityMall</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="{% url 'index' %}" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="#" href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'frontend:about'%}">About</a></li>
+            <li><a href="{% url 'frontend:wears'%}">Fashion</a></li>
+            <li><a href="{% url 'frontend:cakes'%}">Pastries</a></li>
+            <li><a href="{% url 'frontend:phones'%}">Gadgets</a></li>
+            <li><a href="{% url 'frontend:hostel'%}">Hostels</a></li>
+            <li><a href="{% url 'frontend:foods' %}"><span>Restaurants</span></a>
+              <!-- <ul>
+                <li><a href="#">Arena</a></li>
+                </li>
+                <li><a href="#">Krafty</a></li>
+                <li><a href="#">Item7</a></li>
+                <li><a href="#">Okele Joint</a></li>
+                <li><a href="#">Iya Afusat</a></li>
+                <li><a href="#">Joy Bliss</a></li>
+                <li><a href="#">Joy Bliss</a></li>
+              </ul> -->
+            </li>
+            <li><a href="{% url 'frontend:blog'%}">Blog</a></li>
+            <li><a href="{% url 'frontend:contact'%}">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+        <a href="{% url 'backend:login_view'%}" class="get-started-btn">Register</a>
+  
+      </div>
+    </header><!-- End Header -->
+  {% endif %}
+
+  {% block content %}
+
+  {% endblock%}
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <h1 class="logo me-auto"><a href="{% url 'index' %}"><img src="{% static 'frontend/assets/img/logo.png' %}" style="width: 130px !important;"></a></h1>
+          <div class="col-lg-3 col-md-6 footer-contact">
+            
+            <p>
+              Hawawu Ajike Hostel Westend <br>
+              Malete, Kwara State.<br>
+              Nigeria <br><br>
+              <strong>Phone:</strong> +234 7084 448 398<br>
+              <strong>Email:</strong> shopcitymall@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Blog</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sales</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Update</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Advertisement</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe and receive updates about trends, memes and more.</p>
+            <form action="" method="post">
+              {{ subscribe_form.as_p }} 
+              <input type="submit" value="Subscribe">
+              {% csrf_token %}
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>ShopCityMall&nbsp;❤️</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://gbemileke.pythonanywhere.com/" target="_blank">Oluwagbemileke</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0" >
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bi bi-whatsapp"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+  
+  
+
+    
+  <!-- <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'frontend/assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'frontend/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'frontend/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'frontend/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!--===============================================================================================-->	
+	<script src="{% static 'frontend/assets/jquery/jquery-3.2.1.min.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/animsition/js/animsition.min.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'frontend/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/select2/select2.min.js' %}"></script>
+    <script>
+      $(".js-select2").each(function(){
+        $(this).select2({
+          minimumResultsForSearch: 20,
+          dropdownParent: $(this).next('.dropDownSelect2')
+        });
+      })
+    </script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/daterangepicker/moment.min.js' %}"></script>
+    <script src="{% static 'frontend/assets/daterangepicker/daterangepicker.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/slick/slick.min.js' %}"></script>
+	  <script src="{% static 'frontend/js/slick-custom.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/parallax100/parallax100.js' %}"></script>
+    <script>
+          $('.parallax100').parallax100();
+    </script>
+  <!--===============================================================================================-->
+    <script src="{% static 'frontend/assets/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+    
+ 
+
+  <!-- Template Main JS File -->
+
+  <script src="{% static 'frontend/assets/js/main.js' %}"></script>
+  <!-- <script src="{% static 'frontend/assets/js/main2.js' %}"></script> -->
+
+</body>
+
+</html>

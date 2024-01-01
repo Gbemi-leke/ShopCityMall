@@ -1,0 +1,58 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title %}
+    AllInOne.com
+{% endblock%}
+
+{% block content %}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Restaurants</h2>
+        <p>We're proud to offer vendors the best possible experience on our website. With a wide range of products and services, an easy-to-use interface, advanced security features, and excellent customer support, we're the number one choice for vendors.</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+          {% if restaurant %}
+            {% for r in restaurant %}
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="course-item">
+                
+                <div class="course-content">
+                  <img src="{{ r.img.url }}" class="img-fluid" alt="..." style="width: 350px; height: 222px; ">
+                    
+                  </div>
+                  <h5><a href="#" class="ml-5 mr-4 ">{{ r.title }}</a></h5> 
+                  <p class="price" style="text-align: center;">&#8358;{{ r.price }}</p>
+                  <div class="trainer-rank d-flex" >
+                    <button type="submit" class="ml-5 mr-4 mb-2 col-8 mt-4 btn btn-success me-2" style="text-align: center !important;"><a href="#" style="color:#fff;">Place Order</a></button>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div> <!-- End Course Item-->
+            {% endfor %}
+          {% endif %}
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Courses Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+ {% endblock %}

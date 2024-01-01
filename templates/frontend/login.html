@@ -1,0 +1,145 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'frontend/assets/img/allinone2.png' %}" rel="icon">
+    <link href="{% static 'frontend/assets/img/allinone1.jfif' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'frontend/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'frontend/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'frontend/login/fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'frontend/login/css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'frontend/login/css/bootstrap.min.css'%}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'frontend/login/css/style.css' %}">
+    <link href="{% static 'frontend/assets/css/style.css' %}" rel="stylesheet">
+
+    <title>Login Page</title>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+
+        <h1 class="logo me-auto"><a href="{% url 'index' %}">AllinOne</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="{% url 'index' %}" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="#" href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'frontend:about'%}">About</a></li>
+            <li><a href="{% url 'frontend:wears'%}">Wear's</a></li>
+            <li><a href="{% url 'frontend:cakes'%}">Pastries</a></li>
+            <li><a href="{% url 'frontend:phones'%}">Gadgets</a></li>
+            <li><a href="{% url 'frontend:hostel'%}">Hostels</a></li>
+            <li><a href="#"><span>Restaurants</span></a>
+              <!-- <ul>
+                <li><a href="#">Arena</a></li>
+                </li>
+                <li><a href="#">Krafty</a></li>
+                <li><a href="#">Item7</a></li>
+                <li><a href="#">Okele Joint</a></li>
+                <li><a href="#">Iya Afusat</a></li>
+                <li><a href="#">Joy Bliss</a></li>
+                <li><a href="#">Joy Bliss</a></li>
+              </ul> -->
+            </li>
+            <li><a href="{% url 'frontend:blog'%}">Blog</a></li>
+            <li><a href="{% url 'frontend:contact'%}">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle" style="padding-left: 160px;"></i>
+        </nav><!-- .navbar -->
+        <!-- <a href="{% url 'backend:login_view'%}" class="get-started-btn">Register</a> -->
+      </div>
+    </header><!-- End Header -->
+    
+
+    <div class="d-md-flex half">
+      <div class="bg" style="background-image: url('{% static 'frontend/login/images/gad2.jpg' %}');"></div>
+      <div class="contents">
+
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block mx-auto">
+                <div class="text-center mb-5" style="background-color: #0d6efd; padding: 15px; color: aliceblue">
+                <h3><strong>Welcome</strong></h3>
+                <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
+                </div>
+                <form action="#" method="post">
+                  {% if messages %}
+                      {% for mes in messages %}
+                          <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                      {% endfor %}
+                  {% endif %}
+                  <div class="form-group first">
+                    <label for="username">E-mail</label>
+                    <input type="user_name" name="user_name" class="form-control" placeholder="your-email@gmail.com" id="username">
+                  </div>
+                  <div class="form-group last mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Your Password" id="password">
+                  </div>
+                  
+                  <div class="d-sm-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked"/>
+                      <div class="control__indicator"></div>
+                    </label> 
+                    <span class="ml-auto">
+                      <a href="{% url 'backend:password_reset_request' %}" class="forgot-pass" style="text-decoration: none;">
+                      Forgot Password</a>
+                    </span> 
+                    
+                  </div>
+                  <p>
+                        <span>
+                            Don't have an account?
+                        </span>
+                        <b class="pointer">
+                            <a href="{% url 'backend:register' %}" style="color: #0d6efd; text-decoration: none;">Create account</a>
+                        </b>
+                    </p>
+                  <input type="submit" value="Log In" class="btn btn-block btn-primary" style="background-color:#0d6efd !important; border-color: #0d6efd;">
+                  {% csrf_token %}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+
+      <!-- Template Main JS File -->
+      
+      <script src="{% static 'frontend/login/js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'frontend/login/js/popper.min.js' %}"></script>
+      <script src="{% static 'frontend/login/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'frontend/login/js/main.js' %}"></script>
+      <script src="{% static 'frontend/assets/js/main.js' %}"></script>
+  </body>
+</html>

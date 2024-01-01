@@ -1,0 +1,65 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+shopcitymall.com.ng
+{% endblock %}
+
+{% block content %}
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Restaurants /</span> View Post</h4>
+
+              <div class="row">
+                <!-- Form controls -->
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                     <div class="row p-3" style="font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique;">     
+                        {% if restaurant %}
+                            {% for r in restaurant %}                                       
+                            <div class="row">
+                                <div class="col-md-2 col-sm-12">
+                                    <figure >
+                                        <img src="{{ r.img.url }}" alt=""style="width: 100px;height: 100px; border-radius:50%;" >
+                                    </figure>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <h4>{{ r.title }}</h4>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <p>{{ r.description|truncatewords:30 }}</p>
+                                </div>
+                                
+                                <div class="row p-4">
+                                    <div class="col-md-2 p-2">
+                                        <button type="submit" class=" btn btn-primary me-2 fa fa-fw fa-eye"><a href="#" style="color:#fff;">View Blog</a></button>
+                                    </div>
+                                    <div class="col-md-2 p-2">
+                                        <button type="submit" class=" btn btn-success me-2 fa fa-fw fa-pencil"><a href="#" style="color:#fff;">Edit Blog</a></button>
+                                    </div>
+                                    <div class="col-md-2 p-2">
+                                        <button type="reset" class=" btn btn-outline-danger fa fa-fw fa-times-circle-o"><a href="#" style="color:black;">Delete</a></button>
+                                    </div>        
+                                </div>
+                            </div>
+                            <hr class="my-5" />
+                                
+                            {% endfor%}
+                        {% endif %}
+                                          
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+  {% endblock %}

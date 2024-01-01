@@ -1,0 +1,125 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+shopcitymall
+{% endblock %}
+
+{% block content %}
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span>Edit Account</h4>
+
+              <div class="row">
+                
+                <div class="col-md-12">
+                  <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                   
+                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'users:edit_profile'%}"
+                        ><i class="bx bx-link-alt me-1"></i> Update Profile</a>
+                    </li>
+                  </ul>
+                  <div class="card mb-4">
+                    <h5 class="card-header">Profile Details</h5>
+                    <!-- Account -->
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form  enctype="multipart/form-data" method="POST">
+                        {% if messages %}
+                          {% for message in messages %}
+                              <div class="alert alert-success">{{ message }}</div>
+                          {% endfor %}
+                        {% endif %}
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                              <img
+                                src="{{ user.image_url }}"
+                                alt="user-avatar"
+                                class="d-block rounded"
+                                height="20%"
+                                width="20%"
+                                id="uploadedAvatar"
+                              />
+                              <div class="">
+                                  {{ edit_form.image}}                   
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            {{ edit_form.first_name }} 
+
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            
+                            {{ edit_form.last_name }} 
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="username" class="form-label">Username</label>
+                            {{ edit_form.user_name }} 
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            {{ edit_form.email }} 
+
+                          </div>
+                          
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <div class="input-group input-group-merge">
+                              <span class="input-group-text">NG (+234)</span>
+                              {{ edit_form.phone_number }} 
+
+                            </div>
+                          </div>
+                          <div class="mb-3 col-md-12">
+                            <label for="about" class="form-label">About Me</label>
+                            {{ edit_form.about }} 
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save Changes</button>
+                        </div>
+                        {% csrf_token %}
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                  <div class="card">
+                    <h5 class="card-header">Delete Account</h5>
+                    <div class="card-body">
+                      <div class="mb-3 col-12 mb-0">
+                        <div class="alert alert-warning">
+                          <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete your account?</h6>
+                          <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                        </div>
+                      </div>
+                      <form id="formAccountDeactivation" onsubmit="return false">
+                        <div class="form-check mb-3">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="accountActivation"
+                            id="accountActivation"
+                          />
+                          <label class="form-check-label" for="accountActivation"
+                            >I confirm my account deactivation</label
+                          >
+                        </div>
+                        <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+  {% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+{% block title %}
+    shopcitymall.com.ng
+{% endblock%}
+
+{% block content %}
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Hostels</h2>
+        <p>We're proud to offer vendors the best possible experience on our website. With a wide range of products and services, an easy-to-use interface, advanced security features, and excellent customer support, we're the number one choice for vendors.</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= About Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              <img src="{% static 'frontend/assets/img/2.jpg' %}" class="img-fluid" alt="..." style="width:388px; height: 300px;">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>Property:</h4>
+                  <p class="price">&#8358;350,000.00</p>
+                </div>
+
+                <h3><a href="course-details.html">A room Self contain</a></h3>
+                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
+                    <span>{{user.user_name}}</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="course-item">
+              <img src="{% static 'frontend/assets/img/10.jpg' %}" class="img-fluid" alt="..." style="width:388px; height: 300px;">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>Property:</h4>
+                  <p class="price">&#8358;650,000.00</p>
+                </div>
+
+                <h3><a href="course-details.html">2 Bed room flat</a></h3>
+                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+                    <span>{{user.user_name}}</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="course-item">
+              <img src="{% static 'frontend/assets/img/9.jpg' %}" class="img-fluid" alt="..." style="width:388px; height: 300px;">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>Property:</h4>
+                  <p class="price">&#8358;370,000.00</p>
+                </div>
+
+                <h3><a href="course-details.html">Room and parlour self contain</a></h3>
+                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+                    <span>{{user.user_name}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+
+        </div>
+
+      </div>
+
+  </main><!-- End #main -->
+
+  {% endblock%}
